@@ -1,0 +1,31 @@
+from sklearn.metrics import confusion_matrix
+import seaborn as sns
+import matplotlib.pyplot as plt
+
+# Actual class labels
+y_true = [1, 0, 1, 1, 0, 1, 0, 0, 1, 0]
+
+# Predicted class labels
+y_pred = [1, 0, 1, 0, 0, 1, 1, 0, 1, 0]
+
+# Create confusion matrix
+conf_matrix = confusion_matrix(y_true, y_pred)
+
+# Display confusion matrix
+print("Confusion Matrix:")
+print(conf_matrix)
+
+# Plot confusion matrix
+sns.heatmap(
+    conf_matrix,
+    annot=True,
+    fmt='g',
+    xticklabels=['Class 0', 'Class 1'],
+    yticklabels=['Class 0', 'Class 1'],
+    cmap='Blues'
+)
+
+plt.xlabel("Predicted Label")
+plt.ylabel("Actual Label")
+plt.title("2-Class Confusion Matrix")
+plt.show()
